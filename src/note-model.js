@@ -3,6 +3,5 @@ function Note(text){
 };
 
 Note.prototype.returnText = function(){
-    console.log(this.text);
     return this.text;
 };
