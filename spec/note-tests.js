@@ -10,5 +10,3 @@ function testReturnText() {
 
 testNoteText();
 testReturnText();
-
-console.log(`${passedTests} Passed Tests`)
