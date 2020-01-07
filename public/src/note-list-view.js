@@ -1,12 +1,20 @@
-function NotesListView() {
-  this.notesList = new NotesList();
+function NoteListView(noteList = new NoteList()) {
+  this.noteList = noteList;
 };
 
 
-NotesListView.prototype.getHTMLString = function() {
+NoteListView.prototype.getHTMLString = function() {
   var string = "<ul>"
-  this.notesList.notes.forEach(note => {
+  this.noteList.notes.forEach(note => {
       string += `<li>${note}</li>`
   });
   return string + "</ul>"
-}; 
+};
+
+NoteListView.prototype.returnNotes = function() {
+  return this.noteList.returnNotes();
+}
+
+NoteListView.prototype.addNote = function(note) {
+  this.noteList.addNote(note);
+}

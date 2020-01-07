@@ -1,19 +1,19 @@
-var notesList = new NotesList();
-notesList.addNote("string1");
-notesList.addNote("string2");
+var noteList = new NoteList();
+noteList.addNote("string1");
+noteList.addNote("string2");
 
 function testNotesArray() {
-    assert.isTrue(Array.isArray(notesList.notes));
+    assert.isTrue(Array.isArray(noteList.notes));
 };
 
 
 function addNote() {
-    assert.isTrue(notesList.notes[0] === "string1");
-    assert.isTrue(notesList.notes[1] === "string2");
+    assert.isTrue(noteList.notes[0] === "string1");
+    assert.isTrue(noteList.notes[1] === "string2");
 };
 
 function testReturnNotes() {
-    notes = notesList.returnNotes();
+    notes = noteList.returnNotes();
     assert.isTrue(notes[0] === "string1" && notes[1] === "string2")
 }
 

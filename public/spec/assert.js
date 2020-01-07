@@ -8,6 +8,14 @@ var assert = {
         }
         passedTests ++;
     }
-    
 };
 
+var describe = (description, assertion) => {
+    console.log(description);
+    assertion();
+    console.log(passedTests)
+}
+
+describe('one plus one', () => {
+    assert.isTrue(1 + 1 === 2)
+});
