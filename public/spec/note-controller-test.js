@@ -1,9 +1,17 @@
 var testNoteListModel = new NoteList();
 var testNoteListView = new NoteListView(testNoteListModel);
 var testNoteController = new NoteController(testNoteListView);
-testNoteController.addNote('Favourite drink: seltzer');
-app.innerHTML = testNoteController.returnNotes();
 
-console.log(document.getElementById('app').innerHTML);
+describe("Note Controller", () => {
+  
+  describe("Adding a note", () => {
+    testNoteController.addNote("hello!");
+    assert.isTrue(testNoteController.returnNotes().includes("hello!"));
+  });
 
-assert.isTrue(document.getElementById('app').innerHTML.includes('Favourite drink: seltzer'));
+  describe("Displays new note", () => {
+    testNoteController.addNote('Favourite drink: seltzer');
+    app.innerHTML = testNoteController.returnNotes();
+    assert.isTrue(document.getElementById('app').innerHTML.includes('Favourite drink: seltzer'));
+  });
+});
