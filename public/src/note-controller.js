@@ -16,18 +16,19 @@ NoteController.prototype.addNote = function(note) {
 };
 
 (() => { 
-  var app = document.getElementById("app")
-  var newNote = document.getElementById('new-note-text');
+  var app = document.getElementById("app");
   var input = document.getElementById('new-note-input');
+  var button = document.getElementById('btn');
   var noteListModel = new NoteList();
   var noteListView = new NoteListView(noteListModel);
   var noteController = new NoteController(noteListView);
-  app.innerHTML = noteController.returnNotes();
-  noteController.addNote('thingy');
-  app.innerHTML = noteController.returnNotes();
 
-  input.addEventListener('input', (e) => {
-    console.log(e.target.value)
-    newNote.innerText = e.target.value;
+  button.addEventListener("click", function(e){
+    e.preventDefault();
+    if(input.value !== ""){
+    noteController.addNote(input.value);
+    app.innerHTML = noteController.returnNotes();
+    }
   });
+
 })()
